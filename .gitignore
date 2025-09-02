@@ -1,0 +1,12 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# streamlit state
+.grants-cache/
+grants.json
+
+# OS/editor
+.DS_Store
