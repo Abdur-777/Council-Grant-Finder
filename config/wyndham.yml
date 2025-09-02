@@ -1,0 +1,22 @@
+council: "Wyndham City Council"
+lga: "Wyndham"
+audience_defaults: ["community","business","nonprofit"]
+jurisdictions: ["VIC","Commonwealth"]
+
+feeds:
+  - name: "Wyndham City Grants – Hub"
+    url: "https://www.wyndham.vic.gov.au/services/volunteering-grants/wyndham-city-grants"
+    type: "grant"
+  - name: "Business Grants & Support (local)"
+    url: "https://www.wyndham.vic.gov.au/services/business-investment/business-support/grants-financial-support"
+    type: "grant"
+  - name: "TenderLink – Current"
+    url: "https://portal.tenderlink.com/wyndham/alltenders/"
+    type: "tender"
+
+# UI defaults
+default_tabs:
+  - "New this week"
+  - "Closing in 14 days"
+
+closing_window_days: 14
