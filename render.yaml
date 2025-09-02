@@ -1,12 +1,33 @@
 services:
   - type: web
-    name: council-grant-finder
+    name: wyndham-grant-radar
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"
     plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
-      - key: OPENAI_API_KEY
-        sync: false
-      - key: OPENAI_MODEL
-        value: gpt-4o-mini
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # Optional: set STREAMLIT_SERVER_* envs if you want to tweak behaviour
+      # - key: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+      #   value: "false"
+      # - key: STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION
+      #   value: "true"
+
+# If later you add a weekly digest worker (weekly_digest.py), you can enable a cron job like:
+# cronJobs:
+#   - name: wyndham-weekly-digest
+#     schedule: "0 23 * * FRI"   # Fri 23:00 UTC ~ Sat morning AEST
+#     env: python
+#     buildCommand: pip install -r requirements.txt
+#     startCommand: python weekly_digest.py
+#     envVars:
+#       - key: DIGEST_TO
+#         value: funding@wyndham.vic.gov.au,business@wyndham.vic.gov.au
+#       - key: DIGEST_FROM
+#         value: no-reply@yourapp
+#       - key: SMTP_HOST
+#         value: smtp.gmail.com
+#       - key: SMTP_PORT
+#         value: "587"
+#       # Set SMTP_USER/SMTP_PASS in Render dashboard as secrets
