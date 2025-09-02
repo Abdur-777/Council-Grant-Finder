@@ -1,9 +1,5 @@
-streamlit==1.49.1
-requests==2.32.5
-beautifulsoup4==4.13.5
-pandas==2.3.2
-python-docx==1.2.0
-reportlab==4.4.3
-openai==1.102.0
-pydeck==0.9.1
-tqdm==4.67.1
+streamlit==1.38.0
+pandas>=2.2.2
+pyyaml>=6.0.2
+python-dateutil>=2.9.0.post0
+reportlab>=4.2.2
